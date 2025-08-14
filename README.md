@@ -58,7 +58,7 @@ After the data is inserted, various SQL queries can be written to explore and an
 #### Advanced Queries
 - Nested subqueries, window functions, CTEs, and performance optimization.
 
-### 4. Query Optimization
+### 3. Query Optimization
 In advanced stages, the focus shifts to improving query performance. Some optimization strategies include:
 - **Indexing**: Adding indexes on frequently queried columns.
 - **Query Execution Plan**: Using `EXPLAIN ANALYZE` to review and refine query performance.
@@ -84,12 +84,10 @@ In advanced stages, the focus shifts to improving query performance. Some optimi
 ### Advanced Level
 1. Find the top 3 most-viewed tracks for each artist using window functions.
 2. Write a query to find tracks where the liveness score is above the average.
-3. **Use a `WITH` clause to calculate the difference between the highest and lowest energy values for tracks in each album.**
+3. Use a `WITH` clause to calculate the difference between the highest and lowest energy values for tracks in each album.
 4. Find tracks where the energy-to-liveness ratio is greater than 1.2.
 5. Calculate the cumulative sum of likes for tracks ordered by the number of views, using window functions.
 
-
-Here’s an updated section for your **Spotify Advanced SQL Project and Query Optimization** README, focusing on the query optimization task you performed. You can include the specific screenshots and graphs as described.
 
 ---
 
@@ -100,10 +98,10 @@ To improve query performance, we carried out the following optimization process:
 - **Initial Query Performance Analysis Using `EXPLAIN`**
     - We began by analyzing the performance of a query using the `EXPLAIN` function.
     - The query retrieved tracks based on the `artist` column, and the performance metrics were as follows:
-        - Execution time (E.T.): **7 ms**
-        - Planning time (P.T.): **0.17 ms**
+        - Execution time (E.T.): **11.297 ms**
+        - Planning time (P.T.): **0.666 ms**
     - Below is the **screenshot** of the `EXPLAIN` result before optimization:
-      
+      ![EXPLAIN Before Index](https://github.com/NidhiNambiar/Spotify-Data-Analysis-/blob/main/Before_Index.png)
 
 - **Index Creation on the `artist` Column**
     - To optimize the query performance, we created an index on the `artist` column. This ensures faster retrieval of rows where the artist is queried.
@@ -114,15 +112,16 @@ To improve query performance, we carried out the following optimization process:
 
 - **Performance Analysis After Index Creation**
     - After creating the index, we ran the same query again and observed significant improvements in performance:
-        - Execution time (E.T.): **0.153 ms**
-        - Planning time (P.T.): **0.152 ms**
+        - Execution time (E.T.): **0.465 ms**
+        - Planning time (P.T.): **0.177 ms**
     - Below is the **screenshot** of the `EXPLAIN` result after index creation:
-      
+       ![EXPLAIN After Index](https://github.com/NidhiNambiar/Spotify-Data-Analysis-/blob/main/Explain_Analyze_After_Indexing.png)
 
 - **Graphical Performance Comparison**
     - A graph illustrating the comparison between the initial query execution time and the optimized query execution time after index creation.
     - **Graph view** shows the significant drop in both execution and planning times:
-     
+     ![Performance Graph](https://github.com/NidhiNambiar/Spotify-Data-Analysis-/blob/main/GraphicalAnalysis_After_Indexing.png)
+      ![Performance Graph](https://github.com/NidhiNambiar/Spotify-Data-Analysis-/blob/main/Explain_Analyze_After_Index.png)
 
 This optimization shows how indexing can drastically reduce query time, improving the overall performance of our database operations in the Spotify project.
 ---
